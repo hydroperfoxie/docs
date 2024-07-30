@@ -6,7 +6,7 @@ MXML files insert ActionScript code through a `<s:Script>` tag containing code i
 <?xml version="1.0"?>
 <s:Page
     xmlns:s="http://www.steel.net/ver/1"
-    uri="/">
+    path="/">
     <s:Script>
         // ActionScript code
     </s:Script>
@@ -19,7 +19,7 @@ For initialiser code, handle the `creationComplete` event in the `s:Page` tag:
 <?xml version="1.0"?>
 <s:Page
     xmlns:s="http://www.steel.net/ver/1"
-    uri="/"
+    path="/"
     creationComplete="initialise()">
     <s:Script>
         private function initialise():void
