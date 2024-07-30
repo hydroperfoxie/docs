@@ -1,0 +1,26 @@
+/* Open Sans is licensed under the Apache License, Version 2.0. See http://www.apache.org/licenses/LICENSE-2.0 */
+/* Cousine is licensed under the Apache License, Version 2.0. See http://www.apache.org/licenses/LICENSE-2.0 */
+
+/* open-sans */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 100 700;
+  src: url("OpenSans-VariableFont_wdth,wght.ttf");
+}
+
+/* open-sans-italic */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 100 700;
+  src: url("OpenSans-Italic-VariableFont_wdth,wght.ttf");
+}
+
+/* cousine-regular */
+@font-face {
+  font-family: 'Cousine';
+  font-style: normal;
+  font-weight: 400;
+  src: url("Cousine-Regular.ttf");
+}
