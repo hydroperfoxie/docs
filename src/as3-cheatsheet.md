@@ -11,7 +11,7 @@ package
 
     public class HelloWorldEvent extends Event
     {
-        public const TRIGGER:String = "trigger";
+        public static const TRIGGER:String = "trigger";
 
         public function HelloWorldEvent(type:String)
         {
