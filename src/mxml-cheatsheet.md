@@ -6,8 +6,8 @@
 
 ## Importing an ActionScript package as a XML namespace
 
-`xmlns:xy="com.x.y.*`
+`xmlns:xy="com.x.y.*"`
 
 Recursive:
 
-`xmlns:xy="com.x.y.**`
+`xmlns:xy="com.x.y.**"`
