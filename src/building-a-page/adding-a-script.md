@@ -8,7 +8,9 @@ MXML files insert ActionScript code through a `<s:Script>` tag containing code i
     xmlns:s="http://www.steel.net/ver/1"
     path="/">
     <s:Script>
-        // ActionScript code
+        <![CDATA[
+        // ActionScript
+        ]]>
     </s:Script>
 </s:Page>
 ```
@@ -22,10 +24,12 @@ For initialiser code, handle the `creationComplete` event in the `s:Page` tag:
     path="/"
     creationComplete="initialise()">
     <s:Script>
+        <![CDATA[
         private function initialise():void
         {
             trace("Hello world");
         }
+        ]]>
     </s:Script>
 </s:Page>
 ```
