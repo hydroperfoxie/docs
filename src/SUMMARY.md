@@ -8,5 +8,6 @@
   - [Getting started](building-a-page/getting-started.md)
   - [Adding a script](building-a-page/adding-a-script.md)
 - [MXML cheatsheet](mxml-cheatsheet.md)
+- [ActionScript cheatsheet](as3-cheatsheet.md)
 - [Skinning](skinning.md)
   - [Creating a theme](skinning/creating-a-theme.md)

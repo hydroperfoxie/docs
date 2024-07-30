@@ -1,6 +1,6 @@
 # MXML cheatsheet
 
-## Engine namespace
+## Importing the engine namespace
 
 `xmlns:s="http://www.steel.net/ver/1"`
 
