@@ -1,6 +1,6 @@
 # Introduction
 
-Steel is a brand new ActionScript 3 engine implemented simultaneously in the browser and [Node](https://nodejs.org).
+Steel is a brand new ActionScript 3 engine implemented simultaneously in the browser and [Node.js](https://nodejs.org).
 
 > NOTICE
 >
@@ -12,4 +12,4 @@ Steel allows you to program user interface skins, layout and logic in the Action
 
 A Single Page Application is a website that prevents refreshing the current page when redirecting to another page; in other words, a webpage is responsible for its own physical page and for any other physical page.
 
-Single Page Applications render pages in the client side and the server side. The server side requires [Node](https://nodejs.org) to be installed in the host environment.
+Single Page Applications render pages in the client side and the server side. The server side requires [Node.js](https://nodejs.org) to be installed in the host environment.
