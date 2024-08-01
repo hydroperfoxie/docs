@@ -2,8 +2,9 @@
 
 - [Introduction](introduction.md)
 - [Runtime](runtime.md)
-- [MXMLC](mxmlc.md)
-- [MXMLShare](mxmlshare.md)
+- [Internals](internals.md)
+  - [MXMLC](internals/mxmlc.md)
+- [Command line tool](command-line-tool.md)
 - [Building a page](building-a-page.md)
   - [Getting started](building-a-page/getting-started.md)
   - [Adding a script](building-a-page/adding-a-script.md)
