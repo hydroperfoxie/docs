@@ -16,11 +16,3 @@
   font-weight: 100 700;
   src: url("OpenSans-Italic-VariableFont_wdth,wght.ttf");
 }
-
-/* cousine-regular */
-@font-face {
-  font-family: 'Cousine';
-  font-style: normal;
-  font-weight: 400;
-  src: url("Cousine-Regular.ttf");
-}
