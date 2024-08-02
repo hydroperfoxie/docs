@@ -1,9 +1,9 @@
 # Summary
 
 - [Introduction](introduction.md)
-- [Runtime](runtime.md)
 - [Internals](internals.md)
   - [MXMLC](internals/mxmlc.md)
+  - [Runtime](internals/runtime.md)
 - [Command line tool](command-line-tool.md)
 - [Building a page](building-a-page.md)
   - [Getting started](building-a-page/getting-started.md)
