@@ -2,12 +2,12 @@
 
 A theme defines a cascading style sheet that may be applied to the Iron application.
 
-A theme is logical, therefore it is an AS file defining a class that extends iron.themes.Theme.
+A theme is logical, therefore it is an AS file defining a class that extends iron.skins.Theme.
 
 ```as3
 package
 {
-    import iron.themes.*;
+    import iron.skins.*;
 
     public class HelloWorldTheme extends Theme
     {
@@ -22,9 +22,9 @@ A theme may link a cascading style sheet file for expressing the user interface 
 ```as3
 package
 {
-    import iron.themes.*;
+    import iron.skins.*;
 
-    [Theme(file = "style.css")]
+    [SkinSheet(source="style.css")]
     public class HelloWorldTheme extends Theme
     {
     }
