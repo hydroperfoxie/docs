@@ -1,13 +1,13 @@
 # Creating a theme
 
-A theme defines a cascading style sheet that may be applied to the Steel application.
+A theme defines a cascading style sheet that may be applied to the Iron application.
 
-A theme is logical, therefore it is an AS file defining a class that extends steel.themes.Theme.
+A theme is logical, therefore it is an AS file defining a class that extends iron.themes.Theme.
 
 ```as3
 package
 {
-    import steel.themes.*;
+    import iron.themes.*;
 
     public class HelloWorldTheme extends Theme
     {
@@ -22,7 +22,7 @@ A theme may link a cascading style sheet file for expressing the user interface 
 ```as3
 package
 {
-    import steel.themes.*;
+    import iron.themes.*;
 
     [Theme(file = "style.css")]
     public class HelloWorldTheme extends Theme
@@ -34,7 +34,7 @@ package
 Example cascading style sheet:
 
 ```css
-@namespace s "http://www.steel.net/ver/1";
+@namespace s "http://www.iron.net/ver/1";
 
 @font-face {
     fontFamily: "Open Sans";
@@ -44,6 +44,6 @@ Example cascading style sheet:
 }
 
 s|Button {
-    fontFamily: "open sans";
+    fontFamily: "Open Sans";
 }
 ```
