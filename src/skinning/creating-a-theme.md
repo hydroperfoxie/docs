@@ -19,6 +19,8 @@ package
 
 A theme may link a cascading style sheet file for expressing the user interface skins in a concise way.
 
+- The `PropertyReference(name)` CSS calls resolve to a property within the iron.skins.Theme subclass scope, whether it is a static property or an instance property.
+
 ```as3
 package
 {
