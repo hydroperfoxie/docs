@@ -1,14 +1,14 @@
 # Getting started
 
-Pages are MXML files containing a `<s:Page>` tag that explicitly sets the path rule.
+Pages are MXML files containing a `<ie:Page>` tag that explicitly sets the path rule.
 
 Here is an example:
 
 ```mxml
 <?xml version="1.0"?>
-<s:Page
-    xmlns:s="http://www.iron.net/1.0"
+<ie:Page
+    xmlns:ie="http://www.iron.net/1.0"
     path="/">
-    <s:Label text="Hello world!"/>
-</s:Page>
+    <ie:Label text="Hello world!"/>
+</ie:Page>
 ```
