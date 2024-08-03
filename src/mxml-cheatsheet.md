@@ -28,7 +28,13 @@ Recursive:
     <p>Paragraph <b>number</b> <i>1</i></p>
     <ul>
         <li>Item a.</li>
-        <li>Item b.</li>
+        <li>Item b. {password.text}</li>
     </ul>
 </ie:XH>
+```
+
+Data binding expressions contribute plain text, not a HTML text. For that case, use or nest the following to use an expression that returns a HTML text that is displayed directly by the browser:
+
+```mxml
+<ie:XH value="{htmlSource.value}"/>
 ```
