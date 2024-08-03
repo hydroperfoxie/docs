@@ -4,4 +4,4 @@ The [Iron runtime](https://github.com/iron-HYDROPERFOX/runtime) is an ECMAScript
 
 ## API documentation
 
-[Click here for browsing the runtime API documentation](https://hydroperfoxiron.github.io/runtime/docs)
+[Click here for browsing the runtime API documentation](https://hydroperfoxie.github.io/runtime/docs)
