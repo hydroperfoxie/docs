@@ -34,7 +34,7 @@ package
 Example cascading style sheet:
 
 ```css
-@namespace s "http://www.iron.net/ver/1";
+@namespace s "http://www.iron.net/1.0";
 
 @font-face {
     fontFamily: "Open Sans";

@@ -7,7 +7,7 @@ Here is an example:
 ```mxml
 <?xml version="1.0"?>
 <s:Page
-    xmlns:s="http://www.iron.net/ver/1"
+    xmlns:s="http://www.iron.net/1.0"
     path="/">
     <s:Label text="Hello world!"/>
 </s:Page>

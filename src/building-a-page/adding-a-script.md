@@ -5,7 +5,7 @@ MXML files insert ActionScript code through a `<s:Script>` tag containing code i
 ```mxml
 <?xml version="1.0"?>
 <s:Page
-    xmlns:s="http://www.iron.net/ver/1"
+    xmlns:s="http://www.iron.net/1.0"
     path="/">
     <s:Script>
         <![CDATA[
@@ -20,7 +20,7 @@ For initialiser code, handle the `creationComplete` event in the `s:Page` tag:
 ```mxml
 <?xml version="1.0"?>
 <s:Page
-    xmlns:s="http://www.iron.net/ver/1"
+    xmlns:s="http://www.iron.net/1.0"
     path="/"
     creationComplete="initialise()">
     <s:Script>
