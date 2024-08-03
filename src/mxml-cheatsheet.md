@@ -2,7 +2,7 @@
 
 ## Importing the engine namespace
 
-`xmlns:ie="http://www.iron.net/1.0"`
+`xmlns:ie="iron://engine.net/1.0"`
 
 ## Importing an ActionScript package as a XML namespace
 
