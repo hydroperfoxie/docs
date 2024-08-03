@@ -2,7 +2,7 @@
 
 ## Importing the engine namespace
 
-`xmlns:ie="iron://engine.net/1.0"`
+`xmlns:ie="iron://engine.1.0"`
 
 ## Importing an ActionScript package as a XML namespace
 
@@ -23,18 +23,18 @@ Recursive:
 ## Inserting HTML
 
 ```mxml
-<ie:XH>
+<ie:xhtml>
     <h1>Title</h1>
     <p>Paragraph <b>number</b> <i>1</i></p>
     <ul>
         <li>Item a.</li>
         <li>Item b. {password.text}</li>
     </ul>
-</ie:XH>
+</ie:xhtml>
 ```
 
 Data binding expressions contribute plain text, not a HTML text. For that case, use or nest the following to use an expression that returns a HTML text that is displayed directly by the browser:
 
 ```mxml
-<ie:XH value="{htmlSource.value}"/>
+<ie:html value="{htmlSource.value}"/>
 ```

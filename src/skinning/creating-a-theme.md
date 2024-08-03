@@ -36,7 +36,7 @@ package
 Example cascading style sheet:
 
 ```css
-@namespace s "iron://engine.net/1.0";
+@namespace s "iron://engine.1.0";
 
 @font-face {
     fontFamily: "Open Sans";
