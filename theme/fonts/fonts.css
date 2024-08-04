@@ -1,7 +1,7 @@
 /* Open Sans is licensed under the Apache License, Version 2.0. See http://www.apache.org/licenses/LICENSE-2.0 */
-/* Bitstream Vera Sans Mono includes a COPYRIGHT file at this directory including a copyright license from Bitstream.  */
+/* Courier Prime is licensed under the Open Font License. */
 
-/* open-sans */
+/* opensans */
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
@@ -9,7 +9,7 @@
   src: url("OpenSans-VariableFont_wdth,wght.ttf");
 }
 
-/* open-sans-italic */
+/* opensans-italic */
 @font-face {
   font-family: 'Open Sans';
   font-style: italic;
@@ -17,10 +17,10 @@
   src: url("OpenSans-Italic-VariableFont_wdth,wght.ttf");
 }
 
-/* bitstream-vera-sans-mono */
+/* courierprime-regular */
 @font-face {
-  font-family: "Bitstream Vera Sans Mono";
+  font-family: "Courier Prime";
   font-style: normal;
   font-weight: 400;
-  src: url("VeraMono.ttf");
+  src: url("CourierPrime-Regular.ttf");
 }
