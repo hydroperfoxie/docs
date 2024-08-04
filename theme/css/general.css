@@ -26,6 +26,10 @@ code {
     direction: ltr !important;
 }
 
+pre {
+    background: #aaa;
+}
+
 /* make long words/inline code not x overflow */
 main {
     overflow-wrap: break-word;

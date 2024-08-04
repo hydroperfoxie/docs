@@ -2,7 +2,7 @@
 
 A theme defines a cascading style sheet that may be applied to the Iron application.
 
-A theme is logical, therefore it is an AS file defining a class that extends iron.skins.Theme.
+A theme is logical, therefore it is an AS file defining a class that extends `iron.skins.Theme`.
 
 ```as3
 package
@@ -18,8 +18,6 @@ package
 ## Linking a cascading style sheet file
 
 A theme may link a cascading style sheet file for expressing the user interface skins in a concise way.
-
-- The `PropertyReference(name)` CSS calls resolve to a property within the iron.skins.Theme subclass scope, whether it is a static property or an instance property.
 
 ```as3
 package
@@ -49,3 +47,7 @@ s|Button {
     fontFamily: "Open Sans";
 }
 ```
+
+### Variables
+
+The `PropertyReference(name)` CSS calls resolve to a property within the `iron.skins.Theme` subclass scope, whether it is a static property or an instance property.
