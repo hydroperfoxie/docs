@@ -1,5 +1,5 @@
 /* Open Sans is licensed under the Apache License, Version 2.0. See http://www.apache.org/licenses/LICENSE-2.0 */
-/* Cousine is licensed under the Apache License, Version 2.0. See http://www.apache.org/licenses/LICENSE-2.0 */
+/* Bitstream Vera Sans Mono includes a COPYRIGHT file at this directory including a copyright license from Bitstream.  */
 
 /* open-sans */
 @font-face {
@@ -15,4 +15,12 @@
   font-style: italic;
   font-weight: 100 700;
   src: url("OpenSans-Italic-VariableFont_wdth,wght.ttf");
+}
+
+/* bitstream-vera-sans-mono */
+@font-face {
+  font-family: "Bitstream Vera Sans Mono";
+  font-style: normal;
+  font-weight: 400;
+  src: url("VeraMono.ttf");
 }
