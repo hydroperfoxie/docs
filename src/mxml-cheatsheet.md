@@ -30,7 +30,7 @@ text="Last password: {password.text}"
 click="trace('click event:', event);"
 ```
 
-## Inserting HTML
+## Inserting XHTML
 
 ```mxml
 <ie:xhtml>
@@ -43,7 +43,7 @@ click="trace('click event:', event);"
 </ie:xhtml>
 ```
 
-Data binding expressions contribute plain text, not a HTML text. For that case, use or nest the following to use an expression that returns a HTML text that is displayed directly by the browser:
+## Inserting HTML
 
 ```mxml
 <ie:html value="{htmlSource.value}"/>

@@ -6,9 +6,7 @@ Here is an example:
 
 ```mxml
 <?xml version="1.0"?>
-<ie:Page
-    xmlns:ie="iron://engine.1.0"
-    path="/">
+<ie:Page xmlns:ie="iron://engine.1.0" path="/">
     <ie:Label text="Hello world!"/>
 </ie:Page>
 ```

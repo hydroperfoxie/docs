@@ -4,14 +4,10 @@ MXML files insert ActionScript code through a `<ie:Script>` tag containing code 
 
 ```mxml
 <?xml version="1.0"?>
-<ie:Page
-    xmlns:ie="iron://engine.1.0"
-    path="/">
-    <ie:Script>
-        <![CDATA[
+<ie:Page xmlns:ie="iron://engine.1.0" path="/">
+    <ie:Script><![CDATA[
         // ActionScript
-        ]]>
-    </ie:Script>
+    ]]></ie:Script>
 </ie:Page>
 ```
 
@@ -19,17 +15,12 @@ For initialiser code, handle the `creationComplete` event in the `s:Page` tag:
 
 ```mxml
 <?xml version="1.0"?>
-<ie:Page
-    xmlns:ie="iron://engine.1.0"
-    path="/"
-    creationComplete="initialise()">
-    <ie:Script>
-        <![CDATA[
+<ie:Page xmlns:ie="iron://engine.1.0" path="/" creationComplete="initialise()">
+    <ie:Script><![CDATA[
         private function initialise():void
         {
             trace("Hello world");
         }
-        ]]>
-    </ie:Script>
+    ]]></ie:Script>
 </ie:Page>
 ```
