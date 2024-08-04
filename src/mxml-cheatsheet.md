@@ -2,23 +2,33 @@
 
 ## Importing the engine namespace
 
-`xmlns:ie="iron://engine.1.0"`
+```
+xmlns:ie="iron://engine.1.0"
+```
 
 ## Importing an ActionScript package as a XML namespace
 
-`xmlns:xy="com.x.y.*"`
+```
+xmlns:xy="com.x.y.*"
+```
 
 Recursive:
 
-`xmlns:xy="com.x.y.**"`
+```
+xmlns:xy="com.x.y.**"
+```
 
 ## Data binding
 
-`text="Last password: {password.text}"`
+```
+text="Last password: {password.text}"
+```
 
 ## Handling an event
 
-`click="trace('click event:', event);"`
+```
+click="trace('click event:', event);"
+```
 
 ## Inserting HTML
 
