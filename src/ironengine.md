@@ -1,4 +1,4 @@
-# Introduction
+# Iron Engine
 
 Iron is a brand new ActionScript 3 engine for the internet.
 
@@ -10,6 +10,6 @@ A Single Page Application is a website that prevents refreshing the current page
 
 Single Page Applications render pages in the client side and the server side.
 
-## Notice
+## Note
 
 Iron is currently not yet implemented.
