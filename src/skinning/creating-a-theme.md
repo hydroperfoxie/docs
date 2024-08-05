@@ -33,7 +33,7 @@ package
 Example cascading style sheet:
 
 ```css
-@namespace ie "iron://engine.1.0";
+@namespace i "iron://engine.1.0";
 
 @font-face {
     fontFamily: "Open Sans";
@@ -42,7 +42,7 @@ Example cascading style sheet:
     src: url("opensans.ttf");
 }
 
-ie|Button {
+i|Button {
     fontFamily: "Open Sans";
 }
 ```

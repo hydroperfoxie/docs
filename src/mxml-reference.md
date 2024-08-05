@@ -11,24 +11,24 @@ Given that the Iron manifest defines `source[0].path` as `"src"`, the following 
 ```mxml
 <!-- src/com/company/max/WeatherScreen.mxml -->
 <?xml version="1.0"?>
-<ie:HGroup xmlns:ie="iron://engine.1.0">
-    <ie:Label variant="heading" value="Weather"/>
-</ie:HGroup>
+<i:HGroup xmlns:i="iron://engine.1.0">
+    <i:Label variant="heading" value="Weather"/>
+</i:HGroup>
 ```
 
-## ie prefix
+## i prefix
 
-The convention is to assign the `ie` prefix as the URI `iron://engine.1.0`, identifying the Iron Engine elements and component set.
+The convention is to assign the `i` prefix as the URI `iron://engine.1.0`, identifying the Iron Engine elements and component set.
 
-## &lt;ie:Script/&gt;
+## &lt;i:Script/&gt;
 
-The `<ie:Script/>` element is used for defining properties and methods inside the component using the ActionScript language.
+The `<i:Script/>` element is used for defining properties and methods inside the component using the ActionScript language.
 
 ```mxml
 <?xml version="1.0"?>
-<ie:HGroup xmlns:ie="iron://engine.1.0">
-    <ie:Script><![CDATA[
+<i:HGroup xmlns:i="iron://engine.1.0">
+    <i:Script><![CDATA[
         // definitions
-    ]]></ie:Script>
-</ie:HGroup>
+    ]]></i:Script>
+</i:HGroup>
 ```
