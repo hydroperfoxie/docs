@@ -76,7 +76,7 @@ The following program demonstrates general usage of `Vector`:
 const vector:Vector.<Number> = new <Number> [ 10, 5 ];
 
 // populate that Vector with more elements
-for (var i:int = 0, j:int = 1; i < 10; i++, j = ++j % 2)
+for (var i:int = 1, j:int = 0; i <= 10; i++, j = ++j % 2)
 {
     vector.push(vector[j] * i);
 }
