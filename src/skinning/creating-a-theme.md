@@ -1,7 +1,6 @@
 # Creating a theme
 
 A theme defines a cascading style sheet that may be applied to the Iron application.
-
 A theme is logical, therefore it is an AS file defining a class that extends `iron.skins.Theme`.
 
 ```as3
@@ -34,7 +33,7 @@ package
 Example cascading style sheet:
 
 ```css
-@namespace s "iron://engine.1.0";
+@namespace ie "iron://engine.1.0";
 
 @font-face {
     fontFamily: "Open Sans";
@@ -43,11 +42,11 @@ Example cascading style sheet:
     src: url("opensans.ttf");
 }
 
-s|Button {
+ie|Button {
     fontFamily: "Open Sans";
 }
 ```
 
 ### Variables
 
-The `PropertyReference(name)` CSS calls resolve to a property within the `iron.skins.Theme` subclass scope, whether it is a static property or an instance property.
+The `PropertyReference(name)` CSS calls resolve to a property within the theme class block, whether it is a static or instance property.
