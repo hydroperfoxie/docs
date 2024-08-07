@@ -1,6 +1,6 @@
 # ActionScript reference
 
-ActionScript 3 is the primary general purpose, object-oriented scripting language supported by the Iron Engine, which is based in the ECMAScript fourth edition. Iron Engine supports certain features not contained in the specification.
+ActionScript 3 is the primary general purpose, object-oriented scripting language supported by the SkyFlex, which is based in the ECMAScript fourth edition. SkyFlex supports certain features not contained in the specification.
 
 ## Specification
 

@@ -1,14 +1,14 @@
-#  Iron manifest
+#  SkyFlex manifest
 
-The project manifest is a TOML file with the name `iron.toml`, placed in the top directory of a project, that describes an optional Iron workspace and a Iron package.
+The project manifest is a TOML file with the name `skyflex.toml`, placed in the top directory of a project, that describes an optional SkyFlex workspace and a SkyFlex package.
 
-Any Iron project shall contain the Iron manifest in order to, for example, compile.
+Any SkyFlex project shall contain the SkyFlex manifest in order to, for example, compile.
 
 ## Examples
 
 ### Website
 
-The Iron manifest for a website looks like the following:
+The SkyFlex manifest for a website looks like the following:
 
 ```toml
 [package]
@@ -27,7 +27,7 @@ enable = true
 
 ### Library
 
-The Iron manifest for a library looks like the following:
+The SkyFlex manifest for a library looks like the following:
 
 ```toml
 [package]
@@ -46,7 +46,7 @@ include = true
 
 ### Command line interface
 
-The Iron manifest for a command line interface looks like the following:
+The SkyFlex manifest for a command line interface looks like the following:
 
 ```toml
 [package]
@@ -66,7 +66,7 @@ main-class = "example.Example"
 
 ### Workspace
 
-The Iron manifest for a workspace looks like the following:
+The SkyFlex manifest for a workspace looks like the following:
 
 ```toml
 [workspace]

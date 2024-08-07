@@ -13,4 +13,4 @@ It produces the following artifacts:
 * JavaScript source maps mapping back JavaScript to the original ActionScript and MXML sources
 * Static media including images and sound
 
-The resulting artifacts may be mounted into a live website through the Iron command line.
+The resulting artifacts may be mounted into a live website through the SkyFlex command line.

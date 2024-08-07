@@ -1,12 +1,12 @@
 # Creating a theme
 
-A theme defines a cascading style sheet that may be applied to the Iron application.
-A theme is logical, therefore it is an AS file defining a class that extends `iron.skins.Theme`.
+A theme defines a cascading style sheet that may be applied to the SkyFlex application.
+A theme is logical, therefore it is an AS file defining a class that extends `skyflex.skins.Theme`.
 
 ```as3
 package
 {
-    import iron.skins.*;
+    import skyflex.skins.*;
 
     public class HelloWorldTheme extends Theme
     {
@@ -21,7 +21,7 @@ A theme may link a cascading style sheet file for expressing the user interface 
 ```as3
 package
 {
-    import iron.skins.*;
+    import skyflex.skins.*;
 
     [SkinSheet(source="style.css")]
     public class HelloWorldTheme extends Theme
@@ -33,7 +33,7 @@ package
 Example cascading style sheet:
 
 ```css
-@namespace i "iron://engine.1.0";
+@namespace s "http://skyflex.com/1.0";
 
 @font-face {
     fontFamily: "Open Sans";
@@ -42,7 +42,7 @@ Example cascading style sheet:
     src: url("opensans.ttf");
 }
 
-i|Button {
+s|Button {
     fontFamily: "Open Sans";
 }
 ```

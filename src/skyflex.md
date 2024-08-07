@@ -1,8 +1,8 @@
-# Iron Engine
+# SkyFlex
 
-Iron is a brand new ActionScript 3 engine for the internet.
+SkyFlex is a brand new ActionScript 3 engine for the internet.
 
-Iron allows you to program user interface skins, layout and logic in the ActionScript 3 and MXML languages, and additionally skinning the user interface through a subset of the CSS3 language.
+SkyFlex allows you to program user interface skins, layout and logic in the ActionScript 3 and MXML languages, and additionally skinning the user interface through a subset of the CSS3 language.
 
 ## Single Page Applications
 
@@ -12,4 +12,4 @@ Single Page Applications render pages in the client side and the server side.
 
 ## Note
 
-Iron is currently not yet implemented.
+SkyFlex is currently not yet implemented.

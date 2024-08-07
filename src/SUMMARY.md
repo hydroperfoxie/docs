@@ -1,11 +1,11 @@
 # Summary
 
-- [Iron Engine](ironengine.md)
+- [SkyFlex](skyflex.md)
 - [Internals](internals.md)
   - [MXMLC](internals/mxmlc.md)
   - [Runtime](internals/runtime.md)
 - [Command line tool](command-line-tool.md)
-- [Iron manifest](iron-manifest.md)
+- [SkyFlex manifest](skyflex-manifest.md)
 - [Building a page](building-a-page.md)
   - [Getting started](building-a-page/getting-started.md)
   - [Adding a script](building-a-page/adding-a-script.md)

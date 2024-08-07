@@ -6,29 +6,29 @@ MXML is an eXtensible Markup Language used for expressing user interface compone
 
 A MXML file shall have a filename that identifies the name of the ActionScript class that it defines, while the parent directories after a source path determine the ActionScript package it belongs to.
 
-Given that the Iron manifest defines `source[0].path` as `"src"`, the following is an example MXML file defining the class `com.company.max.WeatherScreen`:
+Given that the SkyFlex manifest defines `source[0].path` as `"src"`, the following is an example MXML file defining the class `com.company.max.WeatherScreen`:
 
 ```mxml
 <!-- src/com/company/max/WeatherScreen.mxml -->
 <?xml version="1.0"?>
-<i:HGroup xmlns:i="iron://engine.1.0">
-    <i:Label variant="heading" value="Weather"/>
-</i:HGroup>
+<s:HGroup xmlns:s="http://skyflex.com/1.0">
+    <s:Label variant="heading" value="Weather"/>
+</s:HGroup>
 ```
 
 ## i prefix
 
-The convention is to assign the `i` prefix as the URI `iron://engine.1.0`, identifying the Iron Engine elements and component set.
+The convention is to assign the `i` prefix as the URI `http://skyflex.com/1.0`, identifying the SkyFlex elements and component set.
 
 ## &lt;i:Script/&gt;
 
-The `<i:Script/>` element is used for defining properties and methods inside the component using the ActionScript language.
+The `<s:Script/>` element is used for defining properties and methods inside the component using the ActionScript language.
 
 ```mxml
 <?xml version="1.0"?>
-<i:HGroup xmlns:i="iron://engine.1.0">
-    <i:Script><![CDATA[
+<s:HGroup xmlns:s="http://skyflex.com/1.0">
+    <s:Script><![CDATA[
         // definitions
-    ]]></i:Script>
-</i:HGroup>
+    ]]></s:Script>
+</s:HGroup>
 ```

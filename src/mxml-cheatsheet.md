@@ -3,7 +3,7 @@
 ## Importing the engine namespace
 
 ```
-xmlns:i="iron://engine.1.0"
+xmlns:s="http://skyflex.com/1.0"
 ```
 
 ## Importing an ActionScript package as a XML namespace
@@ -33,18 +33,18 @@ click="trace('click event:', event);"
 ## Inserting XHTML
 
 ```mxml
-<i:xhtml>
+<s:xhtml>
     <h1>Title</h1>
     <p>Paragraph <b>number</b> <i>1</i></p>
     <ul>
         <li>Item a.</li>
         <li>Item b. {password.text}</li>
     </ul>
-</i:xhtml>
+</s:xhtml>
 ```
 
 ## Inserting HTML
 
 ```mxml
-<i:html value="{htmlSource.value}"/>
+<s:html value="{htmlSource.value}"/>
 ```

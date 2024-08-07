@@ -3,7 +3,7 @@ authors = ["Matheus Dias de Souza <hydroperfox@gmail.com>"]
 language = "en"
 multilingual = false
 src = "src"
-title = "Iron Engine"
+title = "SkyFlex"
 
 [output.html]
 copy-fonts = false
