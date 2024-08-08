@@ -1,0 +1,667 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>SkyFlex</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item "><a href="skyflex.html"><strong aria-hidden="true">1.</strong> SkyFlex</a></li><li class="chapter-item "><a href="internals.html"><strong aria-hidden="true">2.</strong> Internals</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="internals/mxmlc.html"><strong aria-hidden="true">2.1.</strong> MXMLC</a></li><li class="chapter-item "><a href="internals/runtime.html"><strong aria-hidden="true">2.2.</strong> Runtime</a></li></ol></li><li class="chapter-item "><a href="command-line-tool.html"><strong aria-hidden="true">3.</strong> Command line tool</a></li><li class="chapter-item "><a href="skyflex-manifest.html"><strong aria-hidden="true">4.</strong> SkyFlex manifest</a></li><li class="chapter-item "><a href="building-a-page.html"><strong aria-hidden="true">5.</strong> Building a page</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="building-a-page/getting-started.html"><strong aria-hidden="true">5.1.</strong> Getting started</a></li><li class="chapter-item "><a href="building-a-page/adding-a-script.html"><strong aria-hidden="true">5.2.</strong> Adding a script</a></li></ol></li><li class="chapter-item "><a href="mxml-reference.html"><strong aria-hidden="true">6.</strong> MXML reference</a></li><li class="chapter-item "><a href="mxml-cheatsheet.html"><strong aria-hidden="true">7.</strong> MXML cheatsheet</a></li><li class="chapter-item "><a href="css-reference.html"><strong aria-hidden="true">8.</strong> CSS reference</a></li><li class="chapter-item "><a href="css-cheatsheet.html"><strong aria-hidden="true">9.</strong> CSS cheatsheet</a></li><li class="chapter-item "><a href="as3-reference.html"><strong aria-hidden="true">10.</strong> ActionScript reference</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="as3-reference/types.html"><strong aria-hidden="true">10.1.</strong> Types</a></li></ol></li><li class="chapter-item "><a href="as3-cheatsheet.html"><strong aria-hidden="true">11.</strong> ActionScript cheatsheet</a></li><li class="chapter-item "><a href="skinning.html"><strong aria-hidden="true">12.</strong> Skinning</a><a class="toggle"><div>❱</div></a></li><li><ol class="section"><li class="chapter-item "><a href="skinning/creating-a-theme.html"><strong aria-hidden="true">12.1.</strong> Creating a theme</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">SkyFlex</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="skyflex"><a class="header" href="#skyflex">SkyFlex</a></h1>
+<p>SkyFlex is a brand new ActionScript 3 engine for the internet.</p>
+<p>SkyFlex allows you to program user interface skins, layout and logic in the ActionScript 3 and MXML languages, and additionally skinning the user interface through a subset of the CSS3 language.</p>
+<h2 id="single-page-applications"><a class="header" href="#single-page-applications">Single Page Applications</a></h2>
+<p>A Single Page Application is a website that prevents refreshing the current page when redirecting to another page; in other words, a webpage is responsible for its own physical page and for any other physical page.</p>
+<p>Single Page Applications render pages in the client side and the server side.</p>
+<h2 id="note"><a class="header" href="#note">Note</a></h2>
+<p>SkyFlex is currently not yet implemented.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="internals"><a class="header" href="#internals">Internals</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mxmlc"><a class="header" href="#mxmlc">MXMLC</a></h1>
+<p>MXMLC is an ActionScript compiler that compiles the following languages:</p>
+<ul>
+<li>ActionScript 3</li>
+<li>MXML</li>
+<li>A CSS3 subset</li>
+</ul>
+<p>It produces the following artifacts:</p>
+<ul>
+<li>JavaScript modules representing physical pages; some for the client, some for the server side</li>
+<li>A JavaScript module that contains application code</li>
+<li>JavaScript source maps mapping back JavaScript to the original ActionScript and MXML sources</li>
+<li>Static media including images and sound</li>
+</ul>
+<p>The resulting artifacts may be mounted into a live website through the SkyFlex command line.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="runtime"><a class="header" href="#runtime">Runtime</a></h1>
+<p>The <a href="https://github.com/skyflexengine/runtime">SkyFlex runtime</a> is an ECMAScript module that defines a large set of classes and functions that JavaScript may import and call that are either part of the ActionScript 3 language environment or the SkyFlex engine.</p>
+<h2 id="api-documentation"><a class="header" href="#api-documentation">API documentation</a></h2>
+<p><a href="https://skyflexengine.github.io/runtime/docs">Click here for browsing the runtime API documentation</a></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="command-line-tool"><a class="header" href="#command-line-tool">Command line tool</a></h1>
+<p>The SkyFlex command line tool allows you to create, compile and publish your MXML applications, your libraries and your own command line tools.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="skyflex-manifest"><a class="header" href="#skyflex-manifest">SkyFlex manifest</a></h1>
+<p>The project manifest is a TOML file with the name <code>skyflex.toml</code>, placed in the top directory of a project, that describes an optional SkyFlex workspace and a SkyFlex package.</p>
+<p>Any SkyFlex project shall contain the SkyFlex manifest in order to, for example, compile.</p>
+<h2 id="examples"><a class="header" href="#examples">Examples</a></h2>
+<h3 id="website"><a class="header" href="#website">Website</a></h3>
+<p>The SkyFlex manifest for a website looks like the following:</p>
+<pre><code class="language-toml">[package]
+name = "example"
+version = "0.1.0"
+
+[[source]]
+path = "src"
+include = true
+
+[website]
+enable = true
+
+[dependencies]
+</code></pre>
+<h3 id="library"><a class="header" href="#library">Library</a></h3>
+<p>The SkyFlex manifest for a library looks like the following:</p>
+<pre><code class="language-toml">[package]
+name = "example.util"
+version = "0.1.0"
+author = "Me &lt;me@example.com&gt;"
+license = "MIT or Apache-2.0"
+description = "My utilities"
+
+[[source]]
+path = "src"
+include = true
+
+[dependencies]
+</code></pre>
+<h3 id="command-line-interface"><a class="header" href="#command-line-interface">Command line interface</a></h3>
+<p>The SkyFlex manifest for a command line interface looks like the following:</p>
+<pre><code class="language-toml">[package]
+name = "example"
+version = "0.1.0"
+
+[[source]]
+path = "src"
+include = true
+
+[cli]
+enable = true
+main-class = "example.Example"
+
+[dependencies]
+</code></pre>
+<h3 id="workspace"><a class="header" href="#workspace">Workspace</a></h3>
+<p>The SkyFlex manifest for a workspace looks like the following:</p>
+<pre><code class="language-toml">[workspace]
+members = [
+    "packages/master",
+    "packages/chief",
+]
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="building-a-page"><a class="header" href="#building-a-page">Building a page</a></h1>
+<p>A SkyFlex application renders a specific page to the user at a time.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="getting-started"><a class="header" href="#getting-started">Getting started</a></h1>
+<p>Pages are MXML files containing a <code>&lt;s:Page&gt;</code> tag that explicitly sets the path rule.</p>
+<p>Here is an example:</p>
+<pre><code class="language-mxml">&lt;!-- src/com/example/pages/Home.mxml --&gt;
+&lt;?xml version="1.0"?&gt;
+&lt;s:Page xmlns:s="http://skyflex.com/1.0" path="/"&gt;
+    &lt;s:Label text="Hello world!"/&gt;
+&lt;/s:Page&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="adding-a-script"><a class="header" href="#adding-a-script">Adding a script</a></h1>
+<p>MXML files insert ActionScript code through a <code>&lt;s:Script&gt;</code> tag containing code inside a <code>&lt;![CDATA[ ... ]]&gt;</code> markup.</p>
+<pre><code class="language-mxml">&lt;?xml version="1.0"?&gt;
+&lt;s:Page xmlns:s="http://skyflex.com/1.0" path="/"&gt;
+    &lt;s:Script&gt;&lt;![CDATA[
+        // ActionScript
+    ]]&gt;&lt;/s:Script&gt;
+&lt;/s:Page&gt;
+</code></pre>
+<p>For initialiser code, handle the <code>creationComplete</code> event in the <code>s:Page</code> tag:</p>
+<pre><code class="language-mxml">&lt;?xml version="1.0"?&gt;
+&lt;s:Page xmlns:s="http://skyflex.com/1.0" path="/" creationComplete="initialise()"&gt;
+    &lt;s:Script&gt;&lt;![CDATA[
+        private function initialise():void
+        {
+            trace("Hello world");
+        }
+    ]]&gt;&lt;/s:Script&gt;
+&lt;/s:Page&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mxml-reference"><a class="header" href="#mxml-reference">MXML reference</a></h1>
+<p>MXML is an eXtensible Markup Language used for expressing user interface components over the ActionScript language.</p>
+<h2 id="mxml-file"><a class="header" href="#mxml-file">MXML file</a></h2>
+<p>A MXML file shall have a filename that identifies the name of the ActionScript class that it defines, while the parent directories after a source path determine the ActionScript package it belongs to.</p>
+<p>Given that the SkyFlex manifest defines <code>source[0].path</code> as <code>"src"</code>, the following is an example MXML file defining the class <code>com.company.max.WeatherScreen</code>:</p>
+<pre><code class="language-mxml">&lt;!-- src/com/company/max/WeatherScreen.mxml --&gt;
+&lt;?xml version="1.0"?&gt;
+&lt;s:HGroup xmlns:s="http://skyflex.com/1.0"&gt;
+    &lt;s:Label variant="heading" value="Weather"/&gt;
+&lt;/s:HGroup&gt;
+</code></pre>
+<h2 id="i-prefix"><a class="header" href="#i-prefix">i prefix</a></h2>
+<p>The convention is to assign the <code>i</code> prefix as the URI <code>http://skyflex.com/1.0</code>, identifying the SkyFlex elements and component set.</p>
+<h2 id="iscript"><a class="header" href="#iscript">&lt;i:Script/&gt;</a></h2>
+<p>The <code>&lt;s:Script/&gt;</code> element is used for defining properties and methods inside the component using the ActionScript language.</p>
+<pre><code class="language-mxml">&lt;?xml version="1.0"?&gt;
+&lt;s:HGroup xmlns:s="http://skyflex.com/1.0"&gt;
+    &lt;s:Script&gt;&lt;![CDATA[
+        // definitions
+    ]]&gt;&lt;/s:Script&gt;
+&lt;/s:HGroup&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="mxml-cheatsheet"><a class="header" href="#mxml-cheatsheet">MXML cheatsheet</a></h1>
+<h2 id="importing-the-engine-namespace"><a class="header" href="#importing-the-engine-namespace">Importing the engine namespace</a></h2>
+<pre><code>xmlns:s="http://skyflex.com/1.0"
+</code></pre>
+<h2 id="importing-an-actionscript-package-as-a-xml-namespace"><a class="header" href="#importing-an-actionscript-package-as-a-xml-namespace">Importing an ActionScript package as a XML namespace</a></h2>
+<pre><code>xmlns:xy="com.x.y.*"
+</code></pre>
+<p>Recursive:</p>
+<pre><code>xmlns:xy="com.x.y.**"
+</code></pre>
+<h2 id="data-binding"><a class="header" href="#data-binding">Data binding</a></h2>
+<pre><code>text="Last password: {password.text}"
+</code></pre>
+<h2 id="handling-an-event"><a class="header" href="#handling-an-event">Handling an event</a></h2>
+<pre><code>click="trace('click event:', event);"
+</code></pre>
+<h2 id="inserting-xhtml"><a class="header" href="#inserting-xhtml">Inserting XHTML</a></h2>
+<pre><code class="language-mxml">&lt;s:xhtml&gt;
+    &lt;h1&gt;Title&lt;/h1&gt;
+    &lt;p&gt;Paragraph &lt;b&gt;number&lt;/b&gt; &lt;i&gt;1&lt;/i&gt;&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Item a.&lt;/li&gt;
+        &lt;li&gt;Item b. {password.text}&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/s:xhtml&gt;
+</code></pre>
+<h2 id="inserting-html"><a class="header" href="#inserting-html">Inserting HTML</a></h2>
+<pre><code class="language-mxml">&lt;s:html value="{htmlSource.value}"/&gt;
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="css-reference"><a class="header" href="#css-reference">CSS reference</a></h1>
+<p>Cascading Style Sheet (CSS) is a subset of the world wide web Cascading Style Sheet 3 language used for skinning the user interface in an expressive way over existing ActionScript definitions.</p>
+<h2 id="basic-sheets"><a class="header" href="#basic-sheets">Basic sheets</a></h2>
+<p>The following sheet customizes the font family and weight of <code>Label</code> objects that are heading titles:</p>
+<pre><code class="language-css">@namespace s "http://skyflex.com/1.0";
+
+s|Label[variant=heading] {
+    fontFamily: segoe ui, sans;
+    fontWeight: lighter;
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="css-cheatsheet"><a class="header" href="#css-cheatsheet">CSS cheatsheet</a></h1>
+<h2 id="embedding-a-font"><a class="header" href="#embedding-a-font">Embedding a font</a></h2>
+<pre><code class="language-css">@font-face {
+    fontFamily: "Open Sans";
+    fontWeight: 100 700;
+    fontStyle: normal;
+    src: url("opensans.ttf");
+}
+</code></pre>
+<h2 id="inline-media"><a class="header" href="#inline-media">Inline media</a></h2>
+<pre><code class="language-css">#hero {
+    logo: Embed(logo.svg);
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actionscript-reference"><a class="header" href="#actionscript-reference">ActionScript reference</a></h1>
+<p>ActionScript 3 is the primary general purpose, object-oriented scripting language supported by the SkyFlex, which is based in the ECMAScript fourth edition. SkyFlex supports certain features not contained in the specification.</p>
+<h2 id="specification"><a class="header" href="#specification">Specification</a></h2>
+<p><a href="https://web.archive.org/web/20240424210812/https://static.bloople.net/ActionScript%203%20Language%20Specification.pdf">ActionScript 3 Language Specification</a></p>
+<p><a href="https://ecma-international.org/wp-content/uploads/ECMA-262_3rd_edition_december_1999.pdf">ECMA-262 Third Edition</a></p>
+<p><a href="https://www.ecma-international.org/wp-content/uploads/ECMA-357_2nd_edition_december_2005.pdf">ECMA-357 Second Edition</a></p>
+<h2 id="basic-programs"><a class="header" href="#basic-programs">Basic programs</a></h2>
+<p>The following program prints "Hello world" to the console:</p>
+<pre><code>trace("Hello world");
+</code></pre>
+<p>The following program defines a range clamping function:</p>
+<pre><code>function clamp(val:Number, start:Number, end:Number):Number
+{
+    return Math.min(Math.max(val, start), end);
+}
+</code></pre>
+<p>The following program defines a global variable:</p>
+<pre><code>package
+{
+    public const DELTA:Number = 2 - 7;
+}
+</code></pre>
+<p>The following program defines a function at the package <code>com.company.max</code>:</p>
+<pre><code>package com.company.max
+{
+    public function contract(team:Team):void
+    {
+        trace("a phone call to", team.name);
+    }
+}
+</code></pre>
+<p>The following program defines the representation of a team in a company as an ActionScript class:</p>
+<pre><code>package com.company.max
+{
+    public class Team
+    {
+        private var m_name:String;
+
+        public function Team(name:String)
+        {
+            m_name = name;
+        }
+
+        public function get name():String
+        {
+            return m_name;
+        }
+    }
+}
+</code></pre>
+<p>The following program demonstrates how you basically define and use enumeration types:</p>
+<pre><code>package com.company.max
+{
+    public enum Priority
+    {
+        const LOW;
+        const HIGH;
+    }
+}
+
+import com.company.max.Priority;
+
+var p:Priority = "low";
+p = "high";
+
+p = Priority.LOW;
+p = Priority.HIGH;
+
+metaInspection();
+
+function metaInspection():void
+{
+    trace("number of Priority.LOW:", Priority.LOW.valueOf());
+    trace("number of Priority.HIGH:", Priority.HIGH.valueOf());
+
+    trace("string of Priority.LOW:", Priority.LOW.toString());
+    trace("string of Priority.HIGH:", Priority.HIGH.toString());
+}
+</code></pre>
+<p>Log:</p>
+<pre><code class="language-plain">number of Priority.LOW: 0
+number of Priority.HIGH: 1
+
+string of Priority.LOW: low
+string of Priority.HIGH: high
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="types"><a class="header" href="#types">Types</a></h1>
+<p>ActionScript defines three minimum types: <code>void</code>, <code>null</code>, and <code>Object</code>, of which only <code>void</code> and <code>Object</code> and its infinite subclasses are expressed by the user.</p>
+<h2 id="void-type"><a class="header" href="#void-type">Void type</a></h2>
+<p>The <code>void</code> type consists of the <code>undefined</code> value.</p>
+<h2 id="null-type"><a class="header" href="#null-type">Null type</a></h2>
+<p>The <code>null</code> type consists of the <code>null</code> value, although no type annotation is allowed to use the <code>null</code> type.</p>
+<h2 id="object-type"><a class="header" href="#object-type">Object type</a></h2>
+<p>The <code>Object</code> type represents objects containing properties in different forms.</p>
+<h3 id="nullability"><a class="header" href="#nullability">Nullability</a></h3>
+<p><code>Object</code> may be the <code>null</code> value, except its subclasses <code>Number</code>, <code>float</code>, <code>int</code>, <code>uint</code> and <code>Boolean</code>.</p>
+<p><code>Object</code> may be the <code>undefined</code> value, except all of its subclasses.</p>
+<h2 id="primitive-types"><a class="header" href="#primitive-types">Primitive types</a></h2>
+<p>The types <code>Number</code>, <code>int</code>, <code>uint</code>, <code>float</code>, <code>Boolean</code> and <code>String</code> are final subclasses of <code>Object</code> that are considered primitive types.</p>
+<div class="table-wrapper"><table><thead><tr><th>Type</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>Number</code></td><td>IEEE 754 double precision floating point. Includes <code>NaN</code>, <code>+Infinity</code> and <code>-Infinity</code>.</td></tr>
+<tr><td><code>float</code></td><td>IEEE 754 single precision floating point. Includes <code>NaN</code>, <code>+Infinity</code> and <code>-Infinity</code>.</td></tr>
+<tr><td><code>int</code></td><td>Signed 32 bit integer</td></tr>
+<tr><td><code>uint</code></td><td>Unsigned 32 bit integer</td></tr>
+<tr><td><code>Boolean</code></td><td>Boolean that is <code>false</code> or <code>true</code></td></tr>
+<tr><td><code>String</code></td><td>String consisting of UTF-16 code units</td></tr>
+</tbody></table>
+</div>
+<h2 id="array-type"><a class="header" href="#array-type">Array type</a></h2>
+<p>The <code>Array.&lt;T&gt;</code> type, also expressed as <code>[T]</code>, is an unoptimized insertion-order collection of values. Indices are zero based.</p>
+<p>The following program demonstrates using the <code>Array</code> type:</p>
+<pre><code>const list : [Number] = [10, 5];
+
+// add a new element equivalent to first value + second value
+list.push(list[0] + list[1]);
+
+trace("length:", list.length, "third value:", list[2]);
+trace("enumerating values...");
+
+for each (var val:Number in list)
+{
+    trace("-", val);
+}
+</code></pre>
+<p>The program log should be:</p>
+<pre><code>length: 3  third value: 15
+enumerating values...
+-  10
+-  5
+-  15
+</code></pre>
+<h2 id="vector-type"><a class="header" href="#vector-type">Vector type</a></h2>
+<p>The <code>Vector.&lt;T&gt;</code> type is an optimized insertion-order collection of values that is used similiarly to <code>Array</code>.</p>
+<p>For numbers where <code>T</code> is one of the numeric types, the <code>Vector</code> class is represented more efficiently compared to <code>Array</code>.</p>
+<p>The following program demonstrates general usage of <code>Vector</code>:</p>
+<pre><code>const vector:Vector.&lt;Number&gt; = new &lt;Number&gt; [ 10, 5 ];
+
+// populate that Vector with more elements
+for (var i:int = 1, j:int = 0; i &lt;= 10; i++, j = ++j % 2)
+{
+    vector.push(vector[j] * i);
+}
+
+trace("enumerating values...");
+
+for each (var val:Number in vector)
+{
+    trace(val);
+}
+</code></pre>
+<h2 id="tuple-type"><a class="header" href="#tuple-type">Tuple type</a></h2>
+<p>The tuple type, expressed as two or more types between brackets, as in <code>[Boolean, String]</code>, is a compile time type that is equivalent to <code>Array</code>, performing checks ahead of time for ensuring that the array consists of a certain sequence of elements of a specific type.</p>
+<p>The tuple type is useful for example when a function returns multiple values:</p>
+<pre><code>function process(data:String):[Boolean, String]
+{
+    trace("processing...");
+    var successful = true;
+    var output = data.charAt(0);
+    return [successful, output];
+}
+</code></pre>
+<h2 id="function-type"><a class="header" href="#function-type">Function type</a></h2>
+<p>The <code>Function</code> type represents a function or a bound method that you may call in ActionScript.</p>
+<p>In addition, a compile time type over <code>Function</code> allows you to ensure a function takes a specific sequence of parameters and that it returns a specific type:</p>
+<pre><code>type TakeRest = function(...[String]):void;
+type TakeOptBoolean = function(Boolean=):void;
+type TakeInt = function(int):void;
+</code></pre>
+<h2 id="namespace-type"><a class="header" href="#namespace-type">Namespace type</a></h2>
+<p>The <code>Namespace</code> type is used both for representing ActionScript 3 namespaces and XML namespaces.</p>
+<h2 id="nullable-type"><a class="header" href="#nullable-type">Nullable type</a></h2>
+<p>The nullable type <code>T?</code> or <code>?T</code> is a compile time type enforcing that a type contains <code>null</code>. Note that almost all types contain <code>null</code> already.</p>
+<h2 id="non-nullable-type"><a class="header" href="#non-nullable-type">Non nullable type</a></h2>
+<p>The non nullable type <code>T!</code> is a compile time ensuring that a type does not contain <code>null</code>.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="actionscript-cheatsheet"><a class="header" href="#actionscript-cheatsheet">ActionScript cheatsheet</a></h1>
+<h2 id="declaring-an-event"><a class="header" href="#declaring-an-event">Declaring an event</a></h2>
+<p>Event class:</p>
+<pre><code class="language-as3">package
+{
+    import flash.events.*;
+
+    public class HelloWorldEvent extends Event
+    {
+        public static const TRIGGER:String = "trigger";
+
+        public function HelloWorldEvent(type:String)
+        {
+            super(type);
+        }
+    }
+}
+</code></pre>
+<p>Event dispatcher:</p>
+<pre><code class="language-as3">package
+{
+    import flash.events.*;
+
+    /**
+     * @eventType HelloWorldEvent.TRIGGER
+     */
+    [Event(name="trigger", type="HelloWorldEvent")]
+    /**
+     * Hello World
+     */
+    public class HelloWorldDispatcher extends EventDispatcher
+    {
+        // code
+    }
+}
+</code></pre>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="skinning"><a class="header" href="#skinning">Skinning</a></h1>
+<p>Skinning the user interface controls can be done both through a CSS3 subset and ActionScript 3.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="creating-a-theme"><a class="header" href="#creating-a-theme">Creating a theme</a></h1>
+<p>A theme defines a cascading style sheet that may be applied to the SkyFlex application.
+A theme is logical, therefore it is an AS file defining a class that extends <code>skyflex.skins.Theme</code>.</p>
+<pre><code class="language-as3">package
+{
+    import skyflex.skins.*;
+
+    public class HelloWorldTheme extends Theme
+    {
+    }
+}
+</code></pre>
+<h2 id="linking-a-cascading-style-sheet-file"><a class="header" href="#linking-a-cascading-style-sheet-file">Linking a cascading style sheet file</a></h2>
+<p>A theme may link a cascading style sheet file for expressing the user interface skins in a concise way.</p>
+<pre><code class="language-as3">package
+{
+    import skyflex.skins.*;
+
+    [SkinSheet(source="style.css")]
+    public class HelloWorldTheme extends Theme
+    {
+    }
+}
+</code></pre>
+<p>Example cascading style sheet:</p>
+<pre><code class="language-css">@namespace s "http://skyflex.com/1.0";
+
+@font-face {
+    fontFamily: "Open Sans";
+    fontWeight: 100 700;
+    fontStyle: normal;
+    src: url("opensans.ttf");
+}
+
+s|Button {
+    fontFamily: "Open Sans";
+}
+</code></pre>
+<h3 id="variables"><a class="header" href="#variables">Variables</a></h3>
+<p>The <code>PropertyReference(name)</code> CSS calls resolve to a property within the theme class block, whether it is a static or instance property.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
